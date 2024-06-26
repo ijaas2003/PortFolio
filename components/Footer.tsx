@@ -1,8 +1,9 @@
 import { FaLocationArrow } from "react-icons/fa6";
-
+import { FaDownLong } from "react-icons/fa6";
 import { socialMedia } from "@/data";
 import MagicButton from "./MagicButton";
 import Link from "next/link";
+import DownloadResume from "./DownloadResume";
 const Footer = () => {
   return (
     <footer className="w-full pt-20 pb-10" id="contact">
@@ -23,13 +24,16 @@ const Footer = () => {
           Reach out to me today and let&apos;s discuss how I can help you
           achieve your goals.
         </p>
-        <a href="mailto:ijaasahamad2003@gmail.com">
-          <MagicButton
-            title="Let's get in touch"
-            icon={<FaLocationArrow />}
-            position="right"
-          />
-        </a>
+        <div className="flex">
+          <a href="mailto:ijaasahamad2003@gmail.com">
+            <MagicButton
+              title="Let's get in touch"
+              icon={<FaLocationArrow />}
+              position="right"
+            />
+          </a>
+          <DownloadResume title="Download Resume" icons=<FaDownLong /> />
+        </div>
       </div>
       <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
         <p className="md:text-base text-sm md:font-normal font-light">
