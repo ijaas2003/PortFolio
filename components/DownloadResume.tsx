@@ -38,7 +38,7 @@ const DownloadResume = ({
     document.body.removeChild(link);
   };
   const handleDownload = async () => {
-    const Fet = await fetch("http://localhost:3000/api/visited", {
+    const Fet = await fetch("https://port-folio-two-xi.vercel.app/visited", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
