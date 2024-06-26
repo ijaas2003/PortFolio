@@ -38,21 +38,24 @@ const DownloadResume = ({
     document.body.removeChild(link);
   };
   const handleDownload = async () => {
-    const Fet = await fetch("https://port-folio-two-xi.vercel.app/visited", {
-      method: "POST",
-      headers: {
-        "content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        visiter: companyName,
-      }),
-    })
+    const Fet = await fetch(
+      "https://port-folio-two-xi.vercel.app/api/visited",
+      {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          visiter: companyName,
+        }),
+      }
+    )
       .then((res) => {
         return res.json();
       })
       .then((res: any) => {
         if (res.message) {
-          success(`Thank you for recruiting team of ${res.message}`);
+          success(`Thank you for the recruiting team of ${res.message}`);
           Download();
         } else {
           error(res.error);
