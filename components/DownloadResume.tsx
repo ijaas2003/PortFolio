@@ -38,15 +38,18 @@ const DownloadResume = ({
     document.body.removeChild(link);
   };
   const handleDownload = async () => {
-    const Fet = await fetch("http://localhost:3000/api/visited", {
-      method: "POST",
-      headers: {
-        "content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        visiter: companyName,
-      }),
-    })
+    const Fet = await fetch(
+      "https://port-folio-two-xi.vercel.app/api/visited",
+      {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          visiter: companyName,
+        }),
+      }
+    )
       .then((res) => {
         return res.json();
       })
@@ -85,7 +88,7 @@ const DownloadResume = ({
           {icons}
         </span>
       </button>
-      
+
       <Dialog open={isOpen} onOpenChange={setIsOpen} modal>
         <DialogTrigger asChild>
           <button className="hidden" />
