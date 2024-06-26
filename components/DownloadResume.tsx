@@ -28,7 +28,7 @@ const DownloadResume = ({
   const Download = () => {
     const fileName = `IjaasAhamad_${companyName}.pdf`;
     // Update the path to your resume
-    const resumePath = "../lib/IjaasAhamad_.pdf";
+    const resumePath = "./IjaasAhamad_.pdf";
 
     const link = document.createElement("a");
     link.href = resumePath;
@@ -38,18 +38,15 @@ const DownloadResume = ({
     document.body.removeChild(link);
   };
   const handleDownload = async () => {
-    const Fet = await fetch(
-      "https://port-folio-two-xi.vercel.app/api/visited",
-      {
-        method: "POST",
-        headers: {
-          "content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          visiter: companyName,
-        }),
-      }
-    )
+    const Fet = await fetch("http://localhost:3000/api/visited", {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        visiter: companyName,
+      }),
+    })
       .then((res) => {
         return res.json();
       })
@@ -62,8 +59,6 @@ const DownloadResume = ({
         }
         console.log("Success");
       });
-
-    // console.log(path.basename);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
