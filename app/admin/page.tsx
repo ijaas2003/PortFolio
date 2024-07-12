@@ -1,12 +1,14 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const Admin = () => {
   const [adminName, setAdminName] = useState("");
   const [adminPass, setAdminPass] = useState("");
   const router = useRouter();
-
+  const success = (msg: string) => toast.success(msg);
+  const errors = (msg: string) => toast.error(msg);
   const handleFetch = async () => {
     try {
       const response = await fetch(
@@ -23,13 +25,21 @@ const Admin = () => {
         }
       );
 
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
+      // if (!response.ok) {
+      //   throw new Error("Network response was not ok");
+      // }
       const data = await response.json();
-      router.push("/admin/data");
-      console.log("Success:", data);
+      console.log(data);
+      if (data.error) {
+        // errors(data.error);
+        alert(data.error);
+        console.log("hii");
+      } else {
+        alert(data.message);
+        // success(data.message);
+        router.push("/admin/data");
+        console.log("Success:", data);
+      }
     } catch (error) {
       console.error("Error:", error);
     }
