@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export const GET = async (req: Request) => {
   await connect();
 
-  const ViewData = await Visited.find({});
+  const ViewData = await Visited.find({}).toArray();
   console.log(ViewData);
   if (!ViewData) {
     return new NextResponse(
