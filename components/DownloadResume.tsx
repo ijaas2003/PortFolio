@@ -28,7 +28,7 @@ const DownloadResume = ({
   const Download = () => {
     const fileName = `IjaasAhamad_${companyName}.pdf`;
     // Update the path to your resume
-    const resumePath = "./IjaasAhamad_CV.pdf";
+    const resumePath = "./IjaasAhamad_.pdf";
 
     const link = document.createElement("a");
     link.href = resumePath;
